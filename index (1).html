@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salón de Belleza Virtu Espinosa | Peluquería y Bienestar en Caudete</title>
+    <style>
+        :root {
+            --primary: #8a7355;
+            --primary-light: #f7f5f0;
+            --accent: #d4af37;
+            --text: #333333;
+            --text-muted: #666666;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #6f5c43;
+        }
+
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+            margin: 10px auto 0;
+        }
+
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 18px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--primary-light);
+            padding: 40px 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .review-card {
+            border: 1px solid #eee;
+            padding: 25px;
+            border-radius: 8px;
+            background-color: var(--white);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .stars {
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .review-text {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .review-author {
+            font-weight: bold;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .rating-summary {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 20px;
+        }
+
+        .rating-score {
+            font-size: 36px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .map-box {
+            width: 100%;
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        footer {
+            background-color: #222;
+            color: #ccc;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav a {
+                margin: 0 10px;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">VIRTU ESPINOSA</a>
+            <nav>
+                <a href="#inicio">Inicio</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#opiniones">Opiniones</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <h1>Salón de Belleza Virtu Espinosa</h1>
+        <p>Tu espacio de peluquería, bienestar y desconexión total en Caudete</p>
+        <a href="tel:965825088" class="btn">Llamar para Reservar Cita</a>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Bienvenidos a Nuestro Salón</h2>
+        <div class="about-content">
+            <p>En el Salón de Belleza Virtu Espinosa, nos apasiona cuidar de ti. De la mano de <strong>Virtu y Conchi</strong>, te ofrecemos un trato cercano, amigable y completamente profesional. Creamos una experiencia a tu medida para que desconectes del día a día mientras realzamos tu belleza natural con la mejor relación calidad-precio.</p>
+        </div>
+    </section>
+
+    <section id="servicios" class="section" style="background-color: #fafafa;">
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>💇‍♀️ Peluquería Profesional</h3>
+                <p>Cortes modernos, coloración avanzada, peinados y tratamientos estilísticos personalizados para lucir tu mejor versión.</p>
+            </div>
+            <div class="service-card">
+                <h3>💆‍♀️ Spa Capilar</h3>
+                <p>Nuestro tratamiento estrella. Una experiencia de relajación profunda a cargo de Conchi para sanar tu cabello y desconectar tu mente.</p>
+            </div>
+            <div class="service-card">
+                <h3>🦶 Pedi-Spa</h3>
+                <p>Un auténtico descubrimiento. Cuidado integral, hidratación profunda y mimo absoluto para tus pies en un entorno de relax.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="opiniones" class="section">
+        <h2 class="section-title">Lo que Dicen Nuestros Clientes</h2>
+        <div class="rating-summary">
+            Nota media de <span class="rating-score">4,9</span> basada en <strong>50 opiniones</strong> en Google Maps
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"El servicio de pedi-spa ha sido todo un descubrimiento, una maravilla que recomiendo totalmente. Virtu y Conchi, como siempre, atentas y geniales en todos los aspectos."</p>
+                <p class="review-author">— Marta Azorín Gil</p>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"El spa capilar una pasada, Conchi es una gran profesional, me encantó, salí súper relajada, repetiré sin duda. Lo recomiendo al 100%."</p>
+                <p class="review-author">— Marilo Gil Bañón</p>
+            </div>
+            <div class="review-card text-center">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"Excelente trato de todo el personal, muy buenas sensaciones, tratamiento 10/10 me ha hecho desconectar y me ha relajado mucho, súper contenta."</p>
+                <p class="review-author">— Barbara López Ribera</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="section" style="background-color: #fafafa;">
+        <h2 class="section-title">Contacto y Reservas</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>¡Ven a visitarnos!</h3>
+                <p>📍 <strong>Dirección:</strong>&nbsp;Av. Juan Carlos I, 16, 02660 Caudete, Albacete</p>
+                <p>📞 <strong>Teléfono:</strong>&nbsp;<a href="tel:965825088" style="color: var(--primary); text-decoration: none; font-weight: bold;">965 82 50 88</a></p>
+                <p>⏰ <strong>Horario habitual:</strong>&nbsp;Jueves desde las 8:00 (Consulta otros días llamando al salón)</p>
+                <p>🌐 <strong>Síguenos en:</strong>&nbsp;<a href="https://www.facebook.com" target="_blank" style="color: var(--primary); margin-left: 5px;">Facebook</a></p>
+                <div style="margin-top: 25px;">
+                    <a href="tel:965825088" class="btn">Llamar Ahora</a>
+                </div>
+            </div>
+            <div class="contact-info">
+                <h3>Ubicación</h3>
+                <div class="map-box">
+                    <!-- Mapa incrustado interactivo para fácil navegación del cliente -->
+                    <iframe src="https://maps.google.com/maps?q=Av.%20Juan%20Carlos%20I,%2016,%2002660%20Caudete,%20Albacete&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Salón de Belleza Virtu Espinosa. Todos los derechos reservados.</p>
+        <p>Diseño Web Profesional enfocado en Experiencia de Cliente.</p>
+    </footer>
+
+</body>
+</html>
